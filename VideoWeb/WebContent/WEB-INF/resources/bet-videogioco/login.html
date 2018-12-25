@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <style>
+body {
+background: url('img2/Untitled.jpg');
+background-repeat: no-repeat;
+background-position: 0 0;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+}
+
+
+ h1{
+
+         color:yellow; 
+}
+input:hover {
+    background-color: #fff999;
+    img id="tucano" display:block;
+
+}
+input[type="password"]:focus:invalid  {
+  outline: 2px solid #ff4747;
+ background-color:  #ff4747;
+}
+
+
+
+input:focus:valid {
+  outline: 2px solid #6dff54;
+ background-color:  #6dff54	;
+
+ }
+ input[type="submit"] {
+
+  opacity: .99;
+  width:120px;
+  background: #08c;
+  box-shadow: inset 0 1px 2px rgba(255,255,255, .35), 0px 1px 6px rgba(0,246,255,.5);
+  border: 1px solid #0a5378;
+  border-radius: 4px;
+  color: #eee;
+}
+.col-2{display:none;}
+.row:hover > .col-2{display:block;}
+
+input[type="submit"]:hover {
+  background: #08c;
+  width:120px;
+  border: 1px solid #0a5378;
+  border-radius: 3px;
+  box-shadow: inset 0px 3px 16px rgba(0,0,0,.25),0px 1px 10px rgba(255,255,255,.5),inset 0px -1px 2px rgba(255,255,255,.35);
+  text-shadow:0px 1px 1px rgba(0,0,0,.65);
+  -webkit-transition: all 0.40s ease-out;
+  transition: all 0.40s ease-out;
+}
+
+img[id^="tucano"]{ height: 50px; width:50px; }
+h2{text-align: center; color:#008800; font-family:cursive;}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">GiochiBet.it</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">HOME <span class="sr-only">(current)</span></a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Registrati</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gioco.html">Gioco Demo</a>
+          </li>
+          
+      </div>
+    </nav>
+
+<div class="bg">
+<div class="container"><br>
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class="col-4">
+<h1>Accedi</h1>
+<br>
+</div>
+  <div class="col-4">
+  </div>
+    </div>
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-10">
+  <form action="get" action="gioco.html">
+<div class="form-group">
+<h2><span class="badge badge-warning">NickName</span></h2>
+<input type="text" class="form-control" name="nome" placeholder="Nome" required maxlength="14">
+</div>
+</div>
+<div class="col-2">
+<img id="tucano" src="img1/tucano.png">
+</div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+  <div class="col-10">
+<div class="form-group">
+<h2><span class="badge badge-warning">Password</span></h2>
+<input type="password"   class="form-control"id="pwd1" name="pwd1" placeholder="Inserisci password" >
+<input type="checkbox" onclick="mostraPassword()">
+<label>Mostra password</label>
+</div>
+</div>
+<div class="col-2">
+<img id="tucano3" src="img1/tucano.png">
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-5">
+  </div>
+ <div class="out"> 
+<input type="submit" value="Accedi">
+</div>
+
+<div class="col-2">
+<img id="tucano5" src="img1/tucano.png">
+</div>
+ <div class="col-5">
+  </div>
+</div>
+</div>
+</div>
+</body>
+</html>

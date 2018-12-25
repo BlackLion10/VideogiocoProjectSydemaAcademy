@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+  <style>
+body {
+background: url('img2/Untitled.jpg');
+background-repeat: no-repeat;
+background-position: 0 0;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+}
+
+
+ input[type="submit"] {
+
+  opacity: .99;
+  width:120px;
+  background: #08c;
+  box-shadow: inset 0 1px 2px rgba(255,255,255, .35), 0px 1px 6px rgba(0,246,255,.5);
+  border: 1px solid #0a5378;
+  border-radius: 4px;
+  color: #eee;
+}
+.col-2{display:none;}
+.row:hover > .col-2{display:block;}
+
+input[type="submit"]:hover {
+  background: #08c;
+  width:120px;
+  border: 1px solid #0a5378;
+  border-radius: 3px;
+  box-shadow: inset 0px 3px 16px rgba(0,0,0,.25),0px 1px 10px rgba(255,255,255,.5),inset 0px -1px 2px rgba(255,255,255,.35);
+  text-shadow:0px 1px 1px rgba(0,0,0,.65);
+  -webkit-transition: all 0.40s ease-out;
+  transition: all 0.40s ease-out;
+}
+</style>
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #b0f442" id="nav">
+  <a class="navbar-brand" href="homepage.html">GiochiBet.it</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="gioco.html">Gioco Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="classifica.html">Classifica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="form.html">Registrati</a>
+
+      </li>    
+    </ul>
+    
+  </div>  
+</nav>
+	
+	<div class="countainer">
+<div class="row">
+    <div class="col-sm-3">
+    
+    </div> 
+
+<div class="col-sm-6">
+ <div class="countainer">
+<h1><span class="badge badge-warning">Benvenuto:${nickname}</span></h1>
+
+ </div> 
+ </div> 
+
+
+
+
+  
+
+
+
+
+
+    <div class="col-sm-">
+    
+    </div> 
+
+</div> 
+</div> 
+<div class="countainer">
+<div class="row">
+    <div class="col-sm-3">
+    
+    </div> 
+
+<div class="col-sm-6">
+ <div class="countainer">
+
+<input type="submit" href="#loginModal" data-toggle="modal" value="ACCEDI">
+ </div> 
+ </div> 
+
+
+
+
+   
+
+
+
+
+
+    <div class="col-sm-3">
+    
+    </div> 
+
+</div> 
+</div> 
+	
+	
+	
+	
+	
+	
+	<form action="get" action="gioco.html">
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Accedi</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+ <div class="modal-body">
+  <div class="container">
+     <div class="row">
+       <div class="col-10">
+         
+<div class="form-group">
+<h2><span class="badge badge-warning">NickName</span></h2>
+<input type="text" class="form-control" name="nome" placeholder="Nome" required maxlength="14">
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-10">
+<div class="form-group">
+<h2><span class="badge badge-warning">Password</span></h2>
+<div class="input-group mb-3">
+<input type="password"   class="form-control"id="pwd1" name="pwd1" placeholder="Inserisci password" required >
+<div class="input-group-append">
+   <button type="button" onclick="mostraPassword()"><i id="pass" class='far fa-eye-slash'></i></button>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-5">
+  </div>
+ <div class="out"> 
+<input type="submit" value="ACCEDI">
+</div>
+</div>
+</div>
+
+</div>
+ </div>
+</div>
+ </div>
+</form>
+</html>

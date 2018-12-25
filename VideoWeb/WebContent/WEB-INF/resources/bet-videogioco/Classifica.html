@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<script src="js/app1.js"></script>
+
+  <script src="js/mycontroller1.js"></script>
+  <style>
+body {
+background: url('img2/Untitled.jpg');
+background-repeat: no-repeat;
+background-position: 0 0;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+}
+
+
+@keyframes anim1 {
+  0% {
+   opacity:0.0;
+  }
+  50% {
+    opacity:0.0;
+   
+  }
+  100% {
+    opacity:1;
+   
+  }
+
+}
+
+
+tr {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  
+  
+}
+tr.table-danger{
+  display: table-row;
+  animation: anim1 1s ease;
+}
+
+tr.table-warning{
+  display: table-row;
+  animation: anim1 2s ease;
+}
+tr.table-success{
+  display: table-row;
+  animation: anim1 3s ease;
+}
+
+  </style>
+  </head>
+  <body >
+
+
+
+   <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #b0f442" id="nav">
+  <a class="navbar-brand" href="homepage.html">GiochiBet.it</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="gioco.html">Gioco Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="classifica.html">Classifica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="form.html">Registrati</a>
+
+      </li>    
+    </ul>
+    
+  </div>  
+</nav>
+<br>
+<br>
+<div class="countainer">
+<div class="row">
+    <div class="col-sm-3">
+    
+    </div> 
+
+<div ng-app="myApp3" ng-controller="paesiCtrl">
+<div class="col-sm-6">
+
+  <div class="countainer">
+      <table class="table table-light table-hover" style="background-color:#8cea8e" >
+    <thead >
+      <tr >
+        <th>Posizione</th>
+        <th>Nickname</th>
+          <th>Punteggio</th>
+        <th>Paese</th>
+		<th>Bandiera</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success" id="primo">
+        <td>1</td>
+        <td>Doe</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-success">
+        <td>2</td>
+        <td>Moe</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-success">
+        <td>3</td>
+        <td>Dooley</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-warning">
+        <td>4</td>
+        <td>Dooley</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-warning">
+        <td>5</td>
+        <td>Dooley</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-danger">
+        <td>6</td>
+        <td>Dooley</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+      <tr class="table-danger"  >
+        <td>7</td>
+        <td>Dooley</td>
+        <td>0000</td>
+         <td></td>
+		 <td>	<img src="{{selectedItem.flag}}" height="40px" width="80px"> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+ </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col-sm-3">
+    
+    </div> 
+
+
+
+</div> 
+</div>
+<br><br>
+
+<br><br>
+
+</body>
+</html>
+

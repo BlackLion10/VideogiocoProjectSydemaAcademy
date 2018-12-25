@@ -1,0 +1,416 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/mappa.js"></script>
+<script type="text/javascript" src="js/movimento.js"></script>
+<script type="text/javascript" src="js/cacciatore.js"></script>
+<script type="text/javascript" src="js/livello1.js"></script>
+<script type="text/javascript" src="js/livello2.js"></script>
+<script type="text/javascript" src="js/livello3.js"></script>
+<script type="text/javascript" src="js/livello4.js"></script>
+<script type="text/javascript" src="js/livello5.js"></script>
+<script type="text/javascript" src="js/livello6.js"></script>
+<script type="text/javascript" src="js/livello7.js"></script>
+<script type="text/javascript" src="js/livello8.js"></script>
+<script type="text/javascript" src="js/livello9.js"></script>
+<script type="text/javascript" src="js/livello10.js"></script>
+<script type="text/javascript" src="js/livello11.js"></script>
+<script type="text/javascript" src="js/livello12.js"></script>
+<script type="text/javascript" src="js/livello13.js"></script>
+<script type="text/javascript" src="js/livello14.js"></script>
+<script type="text/javascript" src="js/livello15.js"></script>
+<style>
+
+body {
+background: url('img1/paesaggio2.jpg');
+background-repeat: no-repeat;
+background-position: 0 0;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+}
+
+
+
+#sfondo{background: url('img1/grass.jpg'); width:fit-content; height:fit-content; margin-left: auto; margin-right:auto; position: relative;  border-radius: 10px;border-style:solid; width:fit-content; border-width:5px;}
+#sfondoBarra {   width: 90%;  height: 30px;  position:absolute ;   background-color: #ddd; border-radius: 10px;border-style:solid;}
+#energy {    width: 0%;      background-color: #4CAF50;  height: 30px;  position: absolute; border-style:solid; border-radius: 10px;}
+#macchia{opacity:0.5; }
+
+#infok{display: none;  10px;border-style:solid; width:fit-content;}
+#info{display: none;  10px;border-style:solid; width:fit-content; }
+#sfondoBarra2 {   width: 90%;  height: 30px;  position: absolute;   background-color: #ddd; border-radius: 10px;border-style:solid;}
+#clessidra {    width: 10%;      background-color: #4286f4;  height: 30px;  position: absolute;  border-style:solid; border-radius: 10px;}
+#pistola{ display: none; text-align:left; border-radius: 10px;border-style:solid; width:fit-content; background-color: #ff631c;  position: absolute;}
+#chiave{ display: none; text-align:left; border-radius: 10px;border-style:solid; width:fit-content; background-color: #ff631c;  position: absolute;}
+#nemico{ display: none; text-align:left; border-radius: 10px;border-style:solid; width:fit-content; background-color: #ff631c;  position: absolute;}
+
+img[id*="c"]{ height: 50px; width:50px;}
+img[src*="key"]{ height: 50px; width:50px;}
+img[src*="ninja"]{ height: 50px; width:50px;}
+img[src*="gun"]{ height: 50px; width:50px;}
+img[src*="gameover"]{ height: 930px; width:1700px;}
+img[src*="img1/macchia"]{ height: 500px; width:500px;}
+img[src^="img1/900"]{opacity:0.0;}
+img.sfondo{opacity:0.0;}
+
+.middle{ display:none; 
+  opacity:0.7;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;}
+
+
+img[src^="img1/runSx0"]{transform: rotateY(150deg)}
+img[src^="img1/runSx1"]{transform: rotateY(150deg)}
+img[src^="img1/runSx2"]{transform: rotateY(150deg)}
+img[src^="img1/runSx3"]{transform: rotateY(150deg)}
+img[src^="img1/runSx4"]{transform: rotateY(150deg)}
+img[src^="img1/runSx5"]{transform: rotateY(150deg)}
+img[src^="img1/runSx6"]{transform: rotateY(150deg)}
+img[src^="img1/runSx7"]{transform: rotateY(150deg)}
+img[src^="img1/runSx8"]{transform: rotateY(150deg)}
+img[src^="img1/runSx9"]{transform: rotateY(150deg)}
+
+img[src^="img1/ninja11"]{transform: rotateY(150deg)}
+img[src^="img1/ninja12"]{transform: rotateY(150deg)}
+img[src^="img1/ninja13"]{transform: rotateY(150deg)}
+img[src^="img1/ninja14"]{transform: rotateY(150deg)}
+img[src^="img1/ninja15"]{transform: rotateY(150deg)}
+img[src^="img1/ninja16"]{transform: rotateY(150deg)}
+img[src^="img1/ninja17"]{transform: rotateY(150deg)}
+img[src^="img1/ninja18"]{transform: rotateY(150deg)}
+img[src^="img1/ninja19"]{transform: rotateY(150deg)}
+img[src^="img1/ninja20"]{transform: rotateY(150deg)}
+
+</style>
+</head>
+<body onkeydown="checkKeyDown(event);" onkeypress="checkKeyPress(event)" >
+<body id="avviaGioco" onload="avviaGioco()">
+
+
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #b0f442" id="nav">
+  <a class="navbar-brand" href="home">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="class">Classifica</a>
+      </li> 
+    </ul>
+   
+  </div>  
+</nav>
+<center>
+<table  border="ENERGIA">
+<table>
+</center>
+<div nf-if="${utente.nickname}">
+<h2>
+<span class="badge badge-success">${utente.nickname}</span>
+</h2>
+</div>
+
+<div id="sfondoBarra"></div>  
+<div id="energy"></div>
+<br>
+
+<div id="sfondoBarra2"></div>  
+<div id="clessidra"></div>
+<br>
+<br>
+<p id="pistola">
+<img id="pis" src="img1/gun.png" >
+</p>
+<br>
+<br>
+<div id="info" class="alert alert-info">
+    <strong>Info!</strong> Hai raccolto l'arma.
+  </div>
+  <div id="infok" class="alert alert-info">
+    <strong>Info!</strong> Hai raccolto la chiave.
+  </div>
+<br>
+<br>
+<p id="chiave">
+<img id="k" src="img1/key.png" >
+</p>
+<p id="nemico">
+<img id="n" src="img1/ninjamorto.png" >
+</p>
+
+
+
+<div id="sfondo" >
+
+<img id="c0_0" src="img1/900.png">
+<img id="c0_1" src="img1/900.png">
+<img id="c0_2" src="img1/900.png">
+<img id="c0_3" src="img1/900.png">
+<img id="c0_4" src="img1/900.png">
+<img id="c0_5" src="img1/900.png">
+<img id="c0_6" src="img1/900.png">
+<img id="c0_7" src="img1/900.png">
+<img id="c0_8" src="img1/900.png">
+<img id="c0_9" src="img1/900.png">
+<img id="c0_10" src="img1/900.png">
+<img id="c0_11" src="img1/900.png">
+<img id="c0_12" src="img1/900.png">
+<img id="c0_13" src="img1/900.png">
+<img id="c0_14" src="img1/900.png">
+<img id="c0_15" src="img1/900.png">
+<img id="c0_16" src="img1/900.png">
+<img id="c0_17" src="img1/900.png">
+<img id="c0_18" src="img1/900.png">
+<img id="c0_19" src="img1/900.png">
+<br>
+<img id="c1_0" src="img1/900.png">
+<img id="c1_1" src="img1/900.png">
+<img id="c1_2" src="img1/900.png">
+<img id="c1_3" src="img1/900.png">
+<img id="c1_4" src="img1/900.png">
+<img id="c1_5" src="img1/900.png">
+<img id="c1_6" src="img1/900.png">
+<img id="c1_7" src="img1/900.png">
+<img id="c1_8" src="img1/900.png">
+<img id="c1_9" src="img1/900.png">
+<img id="c1_10" src="img1/900.png">
+<img id="c1_11" src="img1/900.png">
+<img id="c1_12" src="img1/900.png">
+<img id="c1_13" src="img1/900.png">
+<img id="c1_14" src="img1/900.png">
+<img id="c1_15" src="img1/900.png">
+<img id="c1_16" src="img1/900.png">
+<img id="c1_17" src="img1/900.png">
+<img id="c1_18" src="img1/900.png">
+<img id="c1_19" src="img1/900.png">
+<br>
+<img id="c2_0" src="img1/900.png">
+<img id="c2_1" src="img1/900.png">
+<img id="c2_2" src="img1/900.png">
+<img id="c2_3" src="img1/900.png">
+<img id="c2_4" src="img1/900.png">
+<img id="c2_5" src="img1/900.png">
+<img id="c2_6" src="img1/900.png">
+<img id="c2_7" src="img1/900.png">
+<img id="c2_8" src="img1/900.png">
+<img id="c2_9" src="img1/900.png">
+<img id="c2_10" src="img1/900.png">
+<img id="c2_11" src="img1/900.png">
+<img id="c2_12" src="img1/900.png">
+<img id="c2_13" src="img1/900.png">
+<img id="c2_14" src="img1/900.png">
+<img id="c2_15" src="img1/900.png">
+<img id="c2_16" src="img1/900.png">
+<img id="c2_17" src="img1/900.png">
+<img id="c2_18" src="img1/900.png">
+<img id="c2_19" src="img1/900.png">
+<br>
+<img id="c3_0" src="img1/900.png">
+<img id="c3_1" src="img1/900.png">
+<img id="c3_2" src="img1/900.png">
+<img id="c3_3" src="img1/900.png">
+<img id="c3_4" src="img1/900.png">
+<img id="c3_5" src="img1/900.png">
+<img id="c3_6" src="img1/900.png">
+<img id="c3_7" src="img1/900.png">
+<img id="c3_8" src="img1/900.png">
+<img id="c3_9" src="img1/900.png">
+<img id="c3_10" src="img1/900.png">
+<img id="c3_11" src="img1/900.png">
+<img id="c3_12" src="img1/900.png">
+<img id="c3_13" src="img1/900.png">
+<img id="c3_14" src="img1/900.png">
+<img id="c3_15" src="img1/900.png">
+<img id="c3_16" src="img1/900.png">
+<img id="c3_17" src="img1/900.png">
+<img id="c3_18" src="img1/900.png">
+<img id="c3_19" src="img1/900.png">
+<br>                                          
+<img id="c4_0" src="img1/900.png">   
+<img id="c4_1" src="img1/900.png">     
+<img id="c4_2" src="img1/900.png">    
+<img id="c4_3" src="img1/900.png">    
+<img id="c4_4" src="img1/900.png">     
+<img id="c4_5" src="img1/900.png">    
+<img id="c4_6" src="img1/900.png">    
+<img id="c4_7" src="img1/900.png">    
+<img id="c4_8" src="img1/900.png">
+<img id="c4_9" src="img1/900.png">    
+<img id="c4_10" src="img1/900.png">
+<img id="c4_11" src="img1/900.png">
+<img id="c4_12" src="img1/900.png">
+<img id="c4_13" src="img1/900.png">
+<img id="c4_14" src="img1/900.png">
+<img id="c4_15" src="img1/900.png">
+<img id="c4_16" src="img1/900.png">
+<img id="c4_17" src="img1/900.png">
+<img id="c4_18" src="img1/900.png">
+<img id="c4_19" src="img1/900.png">
+<br>
+<img id="c5_0" src="img1/900.png">
+<img id="c5_1" src="img1/900.png">
+<img id="c5_2" src="img1/900.png">
+<img id="c5_3" src="img1/900.png">
+<img id="c5_4" src="img1/900.png">
+<img id="c5_5" src="img1/900.png">
+<img id="c5_6" src="img1/900.png">
+<img id="c5_7" src="img1/900.png">
+<img id="c5_8" src="img1/900.png">
+<img id="c5_9" src="img1/900.png">
+<img id="c5_10" src="img1/900.png">
+<img id="c5_11" src="img1/900.png">
+<img id="c5_12" src="img1/900.png">
+<img id="c5_13" src="img1/900.png">
+<img id="c5_14" src="img1/900.png">
+<img id="c5_15" src="img1/900.png">
+<img id="c5_16" src="img1/900.png">
+<img id="c5_17" src="img1/900.png">
+<img id="c5_18" src="img1/900.png">
+<img id="c5_19" src="img1/900.png">
+<br>
+<img id="c6_0" src="img1/900.png">
+<img id="c6_1" src="img1/900.png">
+<img id="c6_2" src="img1/900.png">
+<img id="c6_3" src="img1/900.png">
+<img id="c6_4" src="img1/900.png">
+<img id="c6_5" src="img1/900.png">
+<img id="c6_6" src="img1/900.png">
+<img id="c6_7" src="img1/900.png">
+<img id="c6_8" src="img1/900.png">
+<img id="c6_9" src="img1/900.png">
+<img id="c6_10" src="img1/900.png">
+<img id="c6_11" src="img1/900.png">
+<img id="c6_12" src="img1/900.png">
+<img id="c6_13" src="img1/900.png">
+<img id="c6_14" src="img1/900.png">
+<img id="c6_15" src="img1/900.png">
+<img id="c6_16" src="img1/900.png">
+<img id="c6_17" src="img1/900.png">
+<img id="c6_18" src="img1/900.png">
+<img id="c6_19" src="img1/900.png">
+<br>
+<img id="c7_0" src="img1/900.png">
+<img id="c7_1" src="img1/900.png">
+<img id="c7_2" src="img1/900.png">
+<img id="c7_3" src="img1/900.png">
+<img id="c7_4" src="img1/900.png">
+<img id="c7_5" src="img1/900.png">
+<img id="c7_6" src="img1/900.png">
+<img id="c7_7" src="img1/900.png">
+<img id="c7_8" src="img1/900.png">
+<img id="c7_9" src="img1/900.png">
+<img id="c7_10" src="img1/900.png">
+<img id="c7_11" src="img1/900.png">
+<img id="c7_12" src="img1/900.png">
+<img id="c7_13" src="img1/900.png">
+<img id="c7_14" src="img1/900.png">
+<img id="c7_15" src="img1/900.png">
+<img id="c7_16" src="img1/900.png">
+<img id="c7_17" src="img1/900.png">
+<img id="c7_18" src="img1/900.png">
+<img id="c7_19" src="img1/900.png">
+<br>
+<img id="c8_0" src="img1/900.png">
+<img id="c8_1" src="img1/900.png">
+<img id="c8_2" src="img1/900.png">
+<img id="c8_3" src="img1/900.png">
+<img id="c8_4" src="img1/900.png">
+<img id="c8_5" src="img1/900.png">
+<img id="c8_6" src="img1/900.png">
+<img id="c8_7" src="img1/900.png">
+<img id="c8_8" src="img1/900.png">
+<img id="c8_9" src="img1/900.png">
+<img id="c8_10" src="img1/900.png">
+<img id="c8_11" src="img1/900.png">
+<img id="c8_12" src="img1/900.png">
+<img id="c8_13" src="img1/900.png">
+<img id="c8_14" src="img1/900.png">
+<img id="c8_15" src="img1/900.png">
+<img id="c8_16" src="img1/900.png">
+<img id="c8_17" src="img1/900.png">
+<img id="c8_18" src="img1/900.png">
+<img id="c8_19" src="img1/900.png">
+<br>
+<img id="c9_0" src="img1/900.png">
+<img id="c9_1" src="img1/900.png">
+<img id="c9_2" src="img1/900.png">
+<img id="c9_3" src="img1/900.png">
+<img id="c9_4" src="img1/900.png">
+<img id="c9_5" src="img1/900.png">
+<img id="c9_6" src="img1/900.png">
+<img id="c9_7" src="img1/900.png">
+<img id="c9_8" src="img1/900.png">
+<img id="c9_9" src="img1/900.png">
+<img id="c9_10" src="img1/900.png">
+<img id="c9_11" src="img1/900.png">
+<img id="c9_12" src="img1/900.png">
+<img id="c9_13" src="img1/900.png">
+<img id="c9_14" src="img1/900.png">
+<img id="c9_15" src="img1/900.png">
+<img id="c9_16" src="img1/900.png">
+<img id="c9_17" src="img1/900.png">
+<img id="c9_18" src="img1/900.png">
+<img id="c9_19" src="img1/900.png">
+<br>
+</div>
+<div class="middle" id="macchia">
+<div class="row">
+<div class="col-2"><img src="img1/macchia.png"></div>
+<div class="col-8"></div>
+<div class="col-2"><img src="img1/macchia.png"></div>
+</div>
+</div>
+
+<div class="middle" id="over">
+<div class="row">
+<div class="game"><img src="img1/gameover.gif"></div>
+</div>
+</div>
+
+
+<div class="middle" id="win">
+<div class="game"><img src="img1/tucano.png"></div>
+</div>
+</div>
+<br>
+<input type="image"  onClick="su()"  value="su" src="img1/88.jpg"></input>
+<br>
+<input type="image" onClick="sinistra()" value="sinistra" src="img1/91.jpg"><input type="image"  onClick="giu()"  value="giu" src="img1/89.jpg" ></input><input type="image"  onClick="destra()"  value="destra" src="img1/90.jpg"></input>
+<br>
+<input type="button" onClick="disegnaLivello1()" value="LIVELLO1">
+<input type="button" onClick="disegnaLivello2()" value="LIVELLO2">
+<input type="button" onClick="disegnaLivello3()" value="LIVELLO3">
+<input type="button" onClick="disegnaLivello4()" value="LIVELLO4">
+<input type="button" onClick="disegnaLivello5()" value="LIVELLO5">
+<input type="button" onClick="disegnaLivello6()" value="LIVELLO6">
+<input type="button" onClick="disegnaLivello7()" value="LIVELLO7">
+<input type="button" onClick="disegnaLivello8()" value="LIVELLO8">
+<input type="button" onClick="disegnaLivello9()" value="LIVELLO9">
+<input type="button" onClick="disegnaLivello10()" value="LIVELLO10">
+<input type="button" onClick="disegnaLivello11()" value="LIVELLO11">
+<input type="button" onClick="disegnaLivello12()" value="LIVELLO12">
+<input type="button" onClick="disegnaLivello13()" value="LIVELLO13">
+<input type="button" onClick="disegnaLivello12()" value="LIVELLO14">
+<input type="button" onClick="disegnaLivello13()" value="LIVELLO15">
+
+<input type="button" onClick="generaPillole()"      value="genera pillole" ></input>
+<input type="button" onClick="generaFungo()"        value="genera fungo" ></input>
+<input type="button" onClick="generaOstacolo()"     value="genera ostacolo" ></input>
+<input type="button" onClick="generaBuconero()"     value="genera buconero" ></input>
+
+</body>
+</html>
